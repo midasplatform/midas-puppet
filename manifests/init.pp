@@ -3,7 +3,7 @@
 class midas {
 
   #### TODO anything with apache default site or https
-
+  #### TODO maybe break this out to install, config, params...
 
   $midas_git_repo = 'http://public.kitware.com/MIDAS/Midas3.git'
   $projects_root = '/projects'
@@ -52,6 +52,21 @@ class midas {
 
   #no native support yet in apache module for mod_rewrite
   apache::mod { 'rewrite': }
+  
+#  apache::vhost{ 'midas': 
+#    docroot => '/var/www/midas',
+#    port    => '80',
+#    priority => '0',
+#    options => 'FollowSymLinks',
+#    override => 'All',
+#    ssl => true,
+#    redirect_ssl => true,
+#  }
+#
+
+
+
+
 
  
   ## install php and modules 
