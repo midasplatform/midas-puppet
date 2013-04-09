@@ -1,5 +1,4 @@
 
-
 class midas {
 
   #### TODO anything with apache default site or https
@@ -123,7 +122,7 @@ class midas {
  
   # install the midas db
   # TODO paramaterize this 
-  mysql::db { 'midas db':
+  mysql::db { 'midas':
     ensure   => present,
     user     => 'midas',
     password => 'midas',
