@@ -1,4 +1,3 @@
-
 class midas {
 
   #### TODO anything with apache default site or https
@@ -90,7 +89,7 @@ class midas {
   # set up php session garbage collection
   cron {
     'php_session_cleanup':
-      command => "root [ -x /usr/lib/php5/maxlifetime ] && [ -d /var/lib/php5 ] && find /var/lib/php5/ -depth -mindepth 1 -maxdepth 1 -type f -cmin +$(/usr/lib/php5/maxlifetime) ! -execdir fuser -s {} 2>/dev/null \\; -delete",
+      command => "[ -x /usr/lib/php5/maxlifetime ] && [ -d /var/lib/php5 ] && find /var/lib/php5/ -depth -mindepth 1 -maxdepth 1 -type f -cmin +$(/usr/lib/php5/maxlifetime) ! -execdir fuser -s {} 2>/dev/null \\; -delete",
       user    => root,
       minute  => [09, 39],
   }
